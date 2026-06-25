@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        let task=[];
+        let aa=[];
+        function displayTasks() {
+    let list = document.getElementById("todos");
+    list.innerHTML="";
+
+    for(let i = 0; i < task.length; i++) {
+        list.innerHTML += `
+            <div class="task-box">
+                ${task[i]}           
+                <button class="ll" onclick="editTask(${i})">Edit</button>
+                 <button class="ll" onclick="deleteTask(${i})">Delete</button>
+            </div>
+        `;
+    }
+}
+     function displayTaskss(aa) {
+    let list = document.getElementById("todos");
+    list.innerHTML="";
+
+    for(let i = 0; i < aa.length; i++) {
+        list.innerHTML += `
+            <div class="task-box">
+                ${aa[i]}           
+                <button class="ll" onclick="editTask(${i})">Edit</button>
+                 <button class="ll" onclick="deleteTask(${i})">Delete</button>
+            </div>
+        `;
+    }
+}
+function deleteTask(index) {
+    task.splice(index, 1);
+    displayTasks();
+}
+        function add(){
+            let todo=document.getElementById("p");
+             for(let i=0;i<task.length;i++){
+                if(task[i]===todo.value){
+                    alert("Existing Task");
+                    return;
+                }
+             }
+            if(document.getElementById("aa").textContent==="Save"){
+                task[idx]=document.getElementById("p").value;
+                document.getElementById("aa").innerHTML="Add Task";
+            }
+            else{
+            task.push(todo.value);
+            }
+            todo.value="";
+            displayTasks();
+
+        }
+        function dis(){
+            for(let i=0;i<aa.length;i++){
+
+            }
+        }
+        function search(){
+            let se=document.getElementById("s").value;
+          let aa= task.filter((val)=>{
+                    return val==se;
+                    
+          }) ;
+           if(document.getElementById("s").value==""){
+                displayTasks();
+            }
+            else{
+                          displayTaskss(aa); 
+            }
+            }   
+            //  document.getElementsByClassName("task-box").value="Task Not Found"
+              //  document.getElementById("s").value="";
+              
+        
+        function delet(){
+            let n=document.getElementById("nn");
+            for(let i=0;i<task.length;i++){
+                if(task[i]==n.value){
+                    task.splice(i,1);
+                }
+               
+        }
+        displayTasks();
+    }
+    let idx=0;
+    function edit(){
+            let n=document.getElementById("nn").value;
+            for(let i=0;i<task.length;i++){
+                if(task[i]==n){
+                  document.getElementById("p").value=n;
+                  document.getElementById("aa").innerHTML="Save";
+                  idx=i;
+               displayTasks();
+        }
+
+    }
+}
+
+    function editTask(index){
+       document.getElementById("p").value=task[index];
+       document.getElementById("aa").innerHTML="Save";
+                  idx=index;
+       
+        displayTasks();
+                  
+
+
+    }
+    </script>
+</head>
+<body>
+    <div class="kk">
+    <div class="container" id="cc">
+        <h2 class="hh">TO DO List</h2>
+        <input type="text" class="ss" id="p" placeholder="Enter a task">
+        <button class="btn"id="aa" onclick="add()">Add Task</button>
+        <input type="text"class="ss" id="s" onkeyup="search()" placeholder="search task" >
+            <div id="todos"></div>
+            </div>
+</body>
+</html>
+
