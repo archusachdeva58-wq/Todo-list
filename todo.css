@@ -1,8 +1,7 @@
 *{
     margin:0px;
     padding:0px;
-    justify-content: center;
-    align-items:center;
+     box-sizing:border-box;
 }
 .container{
     flex-direction: column;
@@ -22,7 +21,6 @@
 .ss{
     margin-bottom:5px;
     margin-left:10px;
-    width:462px;
     height:40px;
     border-radius:4px;
     padding-left:5px;
@@ -105,4 +103,57 @@ border-radius:4px;
     display:flex;
     justify-content: center;
     align-items:center;
+}
+@media (max-width: 768px) {
+
+    .kk{
+        padding:15px;
+    }
+
+    #cc,
+    .container{
+        width:100%;
+        max-width:400px;
+        height:auto;
+        padding:20px 10px;
+    }
+
+    .ss{
+        width:100%;
+        margin-left:0;
+        box-sizing:border-box;
+    }
+
+    #aa{
+        margin-left:0;
+        width:100%;
+        height:40px;
+    }
+
+    .task-box{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:10px;
+        height:auto;
+        box-sizing:border-box;
+    }
+
+    .task-box button{
+        width:100%;
+        margin:0;
+    }
+
+    .ll{
+        width:100%;
+        height:40px;
+        padding:0;
+    }
+
+    .hh{
+        font-size:26px;
+    }
+}
+.ss{
+    width:100%;
+    max-width:462px;
 }
